@@ -26,6 +26,8 @@ function App2() {
         setStateFilter(stateFilter);
     };
 
+
+    
     const filteredList = inputList.filter((todo) => {
         if (stateFilter === "all") return true;
         if (stateFilter === "completed") return todo.completed;
