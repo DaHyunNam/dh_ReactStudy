@@ -45,7 +45,9 @@ function App() {
         <>
             <div>
                 <div>
+                    <label htmlFor="inputlist">입력</label>
                     <input
+                        id="inputlist"
                         type="input"
                         value={inputValue}
                         onChange={(e) => {

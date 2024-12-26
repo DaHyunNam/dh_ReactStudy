@@ -2,8 +2,10 @@ function Todoitem({ item, i, deleteTodo, completedTodo }) {
 
     return (
         <li>
+            <label for="chklist">리스트 체크</label>
             <input
                 type="checkbox"
+                id="chklist"
                 checked={item.completed}
                 onChange={() => completedTodo(i)}
             />
