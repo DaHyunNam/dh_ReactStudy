@@ -5,7 +5,7 @@ function Todoitem({ item, i, deleteTodo, completedTodo }) {
             <input
                 type="checkbox"
                 checked={item.completed}
-                onChange={() => completedTodo(i)} // 이벤트 핸들러 수정
+                onChange={() => completedTodo(i)}
             />
             <p
                 className="text"
