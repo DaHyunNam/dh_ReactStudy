@@ -1,25 +1,25 @@
-import { useState } from "react";
-import './App.css'
+function Todoitem({ item, i, deleteTodo, completedTodo }) {
+    const { text, completed } = item;
 
-function Todoitem({ item, i, deleteTodo }) {
-    const [isValidCheck, setValidCheck] = useState(false);
-
-    const changeCheck = () => {
-        setValidCheck(!isValidCheck); // 기존값에서 반대
-    };
-    const onClickDelete = () => {
-        deleteTodo(i); // 부모로부터 전달받은 함수에 현재 항목의 i를 넘김
-    };
     return (
         <li>
-            <label>
-                <span className="ir-text">todo check</span>
-            </label>
-            <input type="checkbox" value={isValidCheck} onChange={changeCheck} />
-            <p className="text" style={{ textDecoration: isValidCheck ? "line-through" : "none", color: isValidCheck ? "red" : "#000" }}>
-                {item} {/* 부모로부터 전달받은 item 값을 표시 */}
+            <input
+                type="checkbox"
+                checked={completed}
+                onChange={() => completedTodo(i)} // 이벤트 핸들러 수정
+            />
+            <p
+                className="text"
+                style={{
+                    textDecoration: completed ? "line-through" : "none",
+                    color: completed ? "red" : "#000",
+                }}
+            >
+                {text}
             </p>
-            <button className="deleteBtn" onClick={onClickDelete}>
+            <button className="deleteBtn" onClick={() => deleteTodo(i)}>
+                {" "}
+                {/* 이벤트 핸들러 수정 */}
                 삭제
             </button>
         </li>
@@ -27,4 +27,3 @@ function Todoitem({ item, i, deleteTodo }) {
 }
 
 export default Todoitem;
-
