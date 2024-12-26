@@ -1,25 +1,22 @@
 function Todoitem({ item, i, deleteTodo, completedTodo }) {
-    const { text, completed } = item;
 
     return (
         <li>
             <input
                 type="checkbox"
-                checked={completed}
+                checked={item.completed}
                 onChange={() => completedTodo(i)} // 이벤트 핸들러 수정
             />
             <p
                 className="text"
                 style={{
-                    textDecoration: completed ? "line-through" : "none",
-                    color: completed ? "red" : "#000",
+                    textDecoration: item.completed ? "line-through" : "none",
+                    color: item.completed ? "red" : "#000",
                 }}
             >
-                {text}
+                {item.text}
             </p>
             <button className="deleteBtn" onClick={() => deleteTodo(i)}>
-                {" "}
-                {/* 이벤트 핸들러 수정 */}
                 삭제
             </button>
         </li>
